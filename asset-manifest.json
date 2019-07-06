@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/ib-carousel/static/css/main.6df6e82a.chunk.css",
+    "main.css": "/ib-carousel/static/css/main.2450e90d.chunk.css",
     "main.js": "/ib-carousel/static/js/main.0abb4ec8.chunk.js",
     "main.js.map": "/ib-carousel/static/js/main.0abb4ec8.chunk.js.map",
     "runtime~main.js": "/ib-carousel/static/js/runtime~main.53e9e46b.js",
@@ -8,8 +8,8 @@
     "static/js/2.5e9e9713.chunk.js": "/ib-carousel/static/js/2.5e9e9713.chunk.js",
     "static/js/2.5e9e9713.chunk.js.map": "/ib-carousel/static/js/2.5e9e9713.chunk.js.map",
     "index.html": "/ib-carousel/index.html",
-    "precache-manifest.890faa79a3034d1342e5cd77ea882e76.js": "/ib-carousel/precache-manifest.890faa79a3034d1342e5cd77ea882e76.js",
+    "precache-manifest.c23eb7a2e321dfcaad0bb7efe82b3c8f.js": "/ib-carousel/precache-manifest.c23eb7a2e321dfcaad0bb7efe82b3c8f.js",
     "service-worker.js": "/ib-carousel/service-worker.js",
-    "static/css/main.6df6e82a.chunk.css.map": "/ib-carousel/static/css/main.6df6e82a.chunk.css.map"
+    "static/css/main.2450e90d.chunk.css.map": "/ib-carousel/static/css/main.2450e90d.chunk.css.map"
   }
 }
