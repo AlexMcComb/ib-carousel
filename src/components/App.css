@@ -3,27 +3,35 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  position: absolute;
-  margin-top: 150px;
 }
 
 .prevSvg {
-  transform: rotate(180deg);
   position: absolute;
-  left: 50px;
-  top: 200px;
+  left: 2vw;
+  top: 40vh;
 }
 
 .nextSvg {
   position: absolute;
-  right: 50px;
-  top: 212px;
+  right: -5vw;
+  top: 40vh;
 }
 
 img {
-  z-index: -1;
   width: 80vw;
   height: 80vh;
   object-fit: cover;
   border-radius: 20px;
+  box-shadow: 0px 100px 20px 0px rgba(0, 0, 0, 0.4);
+}
+
+@media screen and (max-width: 414px) {
+  .prevSvg {
+    width: 15vw;
+  }
+
+  .nextSvg {
+    width: 15vw;
+    right: -6.5vw;
+  }
 }

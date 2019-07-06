@@ -20,16 +20,14 @@ export default function App() {
   const transitions = useTransition(count, count, {
     from: {
       opacity: 0,
-      marginTop: -210,
-      position: "absolute",
-      boxShadow: "0px 100px 20px 0px rgba(0,0,0,0.4)"
+      transform: "translate3d(0,-50px,0)"
     },
     enter: {
       opacity: 1,
-      marginTop: 200
+      transform: "translate3d(0,50px,0)"
     },
     leave: { opacity: 0, display: "none" },
-    config: { tension: 60, friction: 7 }
+    config: { mass: 1, tension: 75, friction: 6 }
   });
 
   const prevSlide = () => {
@@ -45,19 +43,20 @@ export default function App() {
   };
 
   return (
-    <div className="container">
-      {transitions.map(({ props, key }) => (
-        <animated.img
-          src={cards[count]}
-          alt="carousel-img"
-          key={key}
-          style={props}
-        />
-      ))}
-      <Arrowprev prevSlide={prevSlide} prevArrow={prevArrow} />
-      <div>
-        <Arrownext nextSlide={nextSlide} nextArrow={nextArrow} />
+    <div>
+      <div className="container">
+        {transitions.map(({ props, key }) => (
+          <animated.img
+            src={cards[count]}
+            alt="carousel-img"
+            key={key}
+            style={props}
+          />
+        ))}
       </div>
+
+      <Arrowprev prevSlide={prevSlide} prevArrow={prevArrow} />
+      <Arrownext nextSlide={nextSlide} nextArrow={nextArrow} />
     </div>
   );
 }
