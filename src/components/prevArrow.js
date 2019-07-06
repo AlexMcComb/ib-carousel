@@ -5,7 +5,6 @@ import "./App.css";
 export default function Arrowprev(props) {
   const [mouse, setMouseOver] = useState(false);
 
-  const strokeLength = 1000;
   const prevAnimate = useSpring({
     width: mouse ? "13.8%" : "13%",
     config: { tension: 500, friction: 10 }
@@ -23,10 +22,8 @@ export default function Arrowprev(props) {
     >
       <animated.svg
         viewBox="0 0 100 100"
-        strokeDasharray={strokeLength}
-        strokeDashoffset={prevAnimate.x}
         className="prevSvg"
-        width={prevAnimate.width}
+        width={prevAnimate.width} //changes the width based on mouse enter of leave from the useSpring hook style object
       >
         <path
           d="M22.119,44.237C9.922,44.237,0,34.315,0,22.119S9.922,0.001,22.119,0.001s22.119,9.922,22.119,22.118

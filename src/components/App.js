@@ -17,21 +17,28 @@ export default function App() {
   const [nextArrow, nextToggled] = useState(false);
   const [prevArrow, prevToggled] = useState(false);
 
+  //I did seek help for this main hook.  I used stack overflow, but by the time someone answered I had most of it figured out.
+  //I orignally was using "useSpring" for this animation, but found "useTransition" is better for an animation
+  //on every image change.  The only code I used from someone else was the first argument of the "useTransition" hook
+  //that is using "count" right now.  Orignally I was trying to pass the cards array there, and thought the animation
+  //would update in the "animated.img" in the return when state changed there in the src tag, but it needs to be tied
+  //directly to state, thus it's using the count from state to determine when to make an animation.
+  //This part was not easy to figure out because their documentation is not the best.
   const transitions = useTransition(count, count, {
     from: {
       opacity: 0,
-      transform: "translate3d(0,-50px,0)"
+      transform: "translate3d(0,-50px,0)" //using translate instead of marginTop fixed a bug that caused the image to glitch
     },
     enter: {
       opacity: 1,
       transform: "translate3d(0,50px,0)"
     },
     leave: { opacity: 0, display: "none" },
-    config: { mass: 1, tension: 75, friction: 6 }
+    config: { mass: 1, tension: 75, friction: 6 } //physics logic
   });
 
   const prevSlide = () => {
-    let prevSlide = count - 1 < 0 ? cards.length - 1 : count - 1; //if count -1 is less than one go to the last index, else subtract 1 from count
+    let prevSlide = count - 1 < 0 ? cards.length - 1 : count - 1; //if count - 1 is less than one go to the last index, else subtract 1 from count
     setCount(prevSlide);
     prevToggled(!prevArrow);
   };
@@ -45,17 +52,19 @@ export default function App() {
   return (
     <div>
       <div className="container">
-        {transitions.map(({ props, key }) => (
+        {transitions.map((
+          { props, key } //take the style props and key which is the count from above and put it in animated.img
+        ) => (
           <animated.img
-            src={cards[count]}
+            src={cards[count]} //updating the source based on the index of the count
             alt="carousel-img"
             key={key}
-            style={props}
+            style={props} //the third argument from the useTransition hook from above
           />
         ))}
       </div>
-
-      <Arrowprev prevSlide={prevSlide} prevArrow={prevArrow} />
+      <Arrowprev prevSlide={prevSlide} prevArrow={prevArrow} />{" "}
+      {/* passing the count functions and the arrow toggle state to these components  */}
       <Arrownext nextSlide={nextSlide} nextArrow={nextArrow} />
     </div>
   );

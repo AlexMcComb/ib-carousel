@@ -5,7 +5,6 @@ import "./App.css";
 export default function Arrownext(props) {
   const [mouse, setMouseOver] = useState(false);
 
-  const strokeLength = 1500;
   const nextAnimate = useSpring({
     width: mouse ? "13.8%" : "13%",
     config: { tension: 500, friction: 10 }
@@ -23,10 +22,8 @@ export default function Arrownext(props) {
     >
       <animated.svg
         viewBox="0 0 100 100"
-        strokeDasharray={strokeLength}
-        strokeDashoffset={nextAnimate.x}
         className="nextSvg"
-        width={nextAnimate.width}
+        width={nextAnimate.width} //changes the width based on mouse enter of leave from the useSpring hook style object
       >
         <path
           d="M22.118,44.236C9.922,44.236,0,34.314,0,22.118S9.922,0,22.118,0s22.118,9.922,22.118,22.118S34.314,44.236,22.118,44.236
