@@ -1,25 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import { animated, useSpring } from "react-spring";
 import "./App.css";
 
 export default function Arrownext(props) {
+  const [mouse, setMouseOver] = useState(false);
+
   const strokeLength = 1000;
   const nextAnimate = useSpring({
-    from: { x: !props.nextArrow ? 0 : 0 },
+    from: { x: !props.nrevArrow ? 0 : 0, width: !mouse ? "150px" : "100px" },
     x: props.nextArrow ? 0 : 2000,
-    config: { duration: 500, tension: 1000, friction: 1 }
+    width: mouse ? "150px" : "120px",
+    config: { duration: 1000 }
   });
 
+  const onHover = () => {
+    setMouseOver(!mouse);
+  };
+
   return (
-    <div onClick={props.nextSlide}>
+    <div
+      onClick={props.nextSlide}
+      onMouseEnter={onHover}
+      onMouseLeave={onHover}
+    >
       <animated.svg
-        viewBox="0 0 1200 1200"
+        viewBox="0 0 300 300"
         fill="#FFFFFF"
         stroke="#000000"
-        strokeWidth="5"
+        strokeWidth="10"
         strokeDasharray={strokeLength}
         strokeDashoffset={nextAnimate.x}
-        width="10%"
+        className="nextSvg"
+        width={nextAnimate.width}
       >
         <path
           d="M265.171,125.577l-80-80c-4.881-4.881-12.797-4.881-17.678,0c-4.882,4.882-4.882,12.796,0,17.678l58.661,58.661H12.5

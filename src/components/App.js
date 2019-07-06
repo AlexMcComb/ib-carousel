@@ -7,9 +7,9 @@ import "./App.css";
 const cards = [
   "https://images.pexels.com/photos/1249214/pexels-photo-1249214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
   "https://images.pexels.com/photos/2067569/pexels-photo-2067569.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-  "https://upload.wikimedia.org/wikipedia/en/9/9b/RWS_Tarot_07_Chariot.jpg",
-  "https://upload.wikimedia.org/wikipedia/en/d/db/RWS_Tarot_06_Lovers.jpg",
-  "https://upload.wikimedia.org/wikipedia/en/d/de/RWS_Tarot_01_Magician.jpg"
+  "https://images.pexels.com/photos/1298684/pexels-photo-1298684.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+  "https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+  "https://images.pexels.com/photos/1013328/pexels-photo-1013328.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
 ];
 
 export default function App() {
@@ -24,8 +24,11 @@ export default function App() {
       position: "absolute",
       boxShadow: "0px 100px 20px 0px rgba(0,0,0,0.4)"
     },
-    enter: { opacity: 1, marginTop: 200, position: "aboslute" },
-    leave: { opacity: 0, position: "aboslute" },
+    enter: {
+      opacity: 1,
+      marginTop: 200
+    },
+    leave: { opacity: 0, display: "none" },
     config: { tension: 60, friction: 7 }
   });
 
@@ -42,19 +45,19 @@ export default function App() {
   };
 
   return (
-    <div>
-      <div className="container">
-        {transitions.map(({ props, key }) => (
-          <animated.img
-            src={cards[count]}
-            alt="carousel-img"
-            key={key}
-            style={props}
-          />
-        ))}
-      </div>
-      <Arrownext nextSlide={nextSlide} nextArrow={nextArrow} />
+    <div className="container">
+      {transitions.map(({ props, key }) => (
+        <animated.img
+          src={cards[count]}
+          alt="carousel-img"
+          key={key}
+          style={props}
+        />
+      ))}
       <Arrowprev prevSlide={prevSlide} prevArrow={prevArrow} />
+      <div>
+        <Arrownext nextSlide={nextSlide} nextArrow={nextArrow} />
+      </div>
     </div>
   );
 }

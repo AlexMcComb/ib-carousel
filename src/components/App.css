@@ -1,34 +1,29 @@
-* {
-  box-sizing: border-box;
-}
-
-/* html,
-body {
-  overscroll-behavior-y: contain;
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-  position: fixed;
-  overflow: hidden;
-} */
-
 .container {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
   width: 100%;
+  position: absolute;
   margin-top: 150px;
 }
 
 .prevSvg {
   transform: rotate(180deg);
+  position: absolute;
+  left: 50px;
+  top: 200px;
+}
+
+.nextSvg {
+  position: absolute;
+  right: 50px;
+  top: 212px;
 }
 
 img {
   z-index: -1;
-  width: 80%;
+  width: 80vw;
   height: 80vh;
   object-fit: cover;
+  border-radius: 20px;
 }
