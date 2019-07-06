@@ -27,11 +27,11 @@ export default function App() {
   const transitions = useTransition(count, count, {
     from: {
       opacity: 0,
-      transform: "translate3d(0,-50px,0)" //using translate instead of marginTop fixed a bug that caused the image to glitch
+      transform: "translate3d(0,-20vh,0)" //using translate instead of marginTop fixed a bug that caused the image to glitch
     },
     enter: {
       opacity: 1,
-      transform: "translate3d(0,50px,0)"
+      transform: "translate3d(0,5vh,0)"
     },
     leave: { opacity: 0, display: "none" },
     config: { mass: 1, tension: 75, friction: 6 } //physics logic
