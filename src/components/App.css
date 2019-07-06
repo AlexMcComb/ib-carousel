@@ -31,14 +31,19 @@ img {
 
 @media screen and (max-width: 414px) {
   .prevSvg {
-    top: 90vh;
+    top: 80vh;
     width: 30vw;
     left: 20vw;
   }
 
   .nextSvg {
-    top: 90vh;
+    top: 80vh;
     width: 30vw;
     right: 3.5vw;
+  }
+
+  img {
+    width: 80vw;
+    height: 70vh;
   }
 }
