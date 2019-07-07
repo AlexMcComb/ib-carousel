@@ -17,7 +17,7 @@ body {
 
 .nextSvg {
   position: absolute;
-  right: -5vw;
+  right: 2vw;
   top: 40vh;
 }
 
@@ -31,19 +31,19 @@ img {
 
 @media screen and (max-width: 414px) {
   .prevSvg {
-    top: 80vh;
-    width: 30vw;
+    top: 73.5vh;
+    width: 15vw;
     left: 20vw;
   }
 
   .nextSvg {
-    top: 80vh;
-    width: 30vw;
-    right: 3.5vw;
+    top: 73.5vh;
+    width: 15vw;
+    right: 20vw;
   }
 
   img {
     width: 80vw;
-    height: 67vh;
+    height: 60vh;
   }
 }

@@ -6,7 +6,7 @@ export default function Arrownext(props) {
   const [mouse, setMouseOver] = useState(false);
 
   const nextAnimate = useSpring({
-    width: mouse ? "13.8%" : "13%",
+    width: mouse ? "7.3%" : "6%",
     config: { tension: 500, friction: 10 }
   });
 
@@ -21,7 +21,7 @@ export default function Arrownext(props) {
       onMouseLeave={onHover}
     >
       <animated.svg
-        viewBox="0 0 100 100"
+        viewBox="0 0 45 45"
         className="nextSvg"
         width={nextAnimate.width} //changes the width based on mouse enter of leave from the useSpring hook style object
       >
