@@ -7,7 +7,7 @@
 
 Demo the app.
 
-- hhttps://alexmccomb.github.io/ib-carousel/
+- https://alexmccomb.github.io/ib-carousel/
 
 ## Built with:
 
