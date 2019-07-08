@@ -6,7 +6,7 @@ export default function Arrowprev(props) {
   const [mouse, setMouseOver] = useState(false);
 
   const prevAnimate = useSpring({
-    width: mouse ? "7.3%" : "6%",
+    width: mouse ? "6.7%" : "6%",
     config: { tension: 500, friction: 10 }
   });
 

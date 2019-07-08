@@ -6,7 +6,7 @@ export default function Arrownext(props) {
   const [mouse, setMouseOver] = useState(false);
 
   const nextAnimate = useSpring({
-    width: mouse ? "7.3%" : "6%",
+    width: mouse ? "6.7%" : "6%",
     config: { tension: 500, friction: 10 }
   });
 

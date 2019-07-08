@@ -14,8 +14,6 @@ const cards = [
 
 export default function App() {
   const [count, setCount] = useState(0);
-  const [nextArrow, nextToggled] = useState(false);
-  const [prevArrow, prevToggled] = useState(false);
 
   //I did seek help for this main hook.  I used stack overflow, but by the time someone answered I had most of it figured out.
   //I orignally was using "useSpring" for this animation, but found "useTransition" is better for an animation
@@ -40,13 +38,11 @@ export default function App() {
   const prevSlide = () => {
     let prevSlide = count - 1 < 0 ? cards.length - 1 : count - 1; //if count - 1 is less than one go to the last index, else subtract 1 from count
     setCount(prevSlide);
-    prevToggled(!prevArrow);
   };
 
   const nextSlide = () => {
     let nextSlide = count + 1 < cards.length ? count + 1 : 0; //if count + 1 is less than cards length, add one to count, else set count to 0
     setCount(nextSlide);
-    nextToggled(!nextArrow);
   };
 
   return (
@@ -63,9 +59,9 @@ export default function App() {
           />
         ))}
       </div>
-      <Arrowprev prevSlide={prevSlide} prevArrow={prevArrow} />{" "}
+      <Arrowprev prevSlide={prevSlide} />{" "}
       {/* passing the count functions and the arrow toggle state to these components  */}
-      <Arrownext nextSlide={nextSlide} nextArrow={nextArrow} />
+      <Arrownext nextSlide={nextSlide} />
     </div>
   );
 }
