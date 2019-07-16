@@ -1,4 +1,4 @@
-## Impossible Bureau Image Carousel Test
+## Image Carousel Test
 
 <h3> An image carousel created with react-spring, a javascript library that allows for physics based animations built with javascript.
 </h3>
