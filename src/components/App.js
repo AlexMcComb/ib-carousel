@@ -9,7 +9,8 @@ const cards = [
   "https://images.pexels.com/photos/2067569/pexels-photo-2067569.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
   "https://images.pexels.com/photos/1298684/pexels-photo-1298684.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
   "https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-  "https://images.pexels.com/photos/1013328/pexels-photo-1013328.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+  "https://images.pexels.com/photos/1013328/pexels-photo-1013328.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+  "https://images.pexels.com/photos/1086584/pexels-photo-1086584.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
 ];
 
 export default function App() {
@@ -31,7 +32,7 @@ export default function App() {
       opacity: 1,
       transform: "translate3d(0,5vh,0)"
     },
-    leave: { opacity: 0, display: "none" },
+    leave: { display: "none" },
     config: { mass: 1, tension: 75, friction: 6 } //physics logic
   });
 
@@ -45,8 +46,18 @@ export default function App() {
     setCount(nextSlide);
   };
 
+  const keyPress = e => {
+    if (e.keyCode === 37) {
+      let prevSlide = count - 1 < 0 ? cards.length - 1 : count - 1; //if count - 1 is less than one go to the last index, else subtract 1 from count
+      setCount(prevSlide);
+    } else if (e.keyCode === 39) {
+      let nextSlide = count + 1 < cards.length ? count + 1 : 0; //if count + 1 is less than cards length, add one to count, else set count to 0
+      setCount(nextSlide);
+    }
+  };
+
   return (
-    <div>
+    <div className="carousel" onKeyDown={keyPress} tabIndex="0">
       <div className="container">
         {transitions.map((
           { props, key } //take the style props and key which is the count from above and put it in animated.img
